@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-feature-food',
@@ -7,19 +8,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./feature-food.component.css'],
 })
 export class FeatureFoodComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-  data: any;
-  meals = [];
+  constructor(private dataService: DataService) {}
+  mealData: any;
 
   ngOnInit(): void {
-    this.http
-      .get('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
-      .subscribe((Response) => {
-        if (Response) {
-          this.data = Response;
-          this.meals = this.data.meals;
-          console.log(Response);
-        }
-      });
+    this.dataService.sendGetRequest().subscribe((data: any) => {
+      this.mealData = data.meals;
+    });
   }
 }

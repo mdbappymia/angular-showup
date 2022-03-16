@@ -14,6 +14,7 @@ import { BannerComponent } from './banner/banner.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { MapComponent } from './map/map.component';
 import { FeatureFoodComponent } from './feature-food/feature-food.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FeatureFoodComponent } from './feature-food/feature-food.component';
     JumbotronComponent,
     MapComponent,
     FeatureFoodComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,10 @@ import { FeatureFoodComponent } from './feature-food/feature-food.component';
       {
         path: 'login',
         component: LoginComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
       },
     ]),
   ],
